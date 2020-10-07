@@ -1,53 +1,65 @@
 <div class="container-fluid d-flex justify-content-center p-5">
+    <!-- <div class="col-6">
+        <div class="pb-2">
+            <input class="form-control col-12 " type="text" #cursoInput>
+        </div>
+        <div class="pb-2">
+            <button type="button" class="btn btn-primary col-12 " (click)="onAddNome(cursoInput.value)">clique aqui</button>
+        </div>
+        <ul>
+            <li *ngFor="let nome of nomes">
+                {{nome}}
+            </li>
+        </ul> -->
+    <form id=formId #f="ngForm" (ngSubmit)="onSubmit(f)">
 
-  <form>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Nome</label>
-        <input type="email" class="form-control" id="inputEmail4">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Senha</label>
-        <input type="password" class="form-control" id="inputPassword4">
-      </div>
-    </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Nome</label>
+                <input type="email" class="form-control" id="inputEmail4" name="nome" [ngModel]="cadastro.nome" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Senha</label>
+                <input type="password" class="form-control" id="inputPassword4" name="senha" [ngModel]="cadastro.senha" required>
+            </div>
+        </div>
 
-    <div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="inputAddress">CEP</label>
-      <input type="number" class="form-control" id="inputAddress">
-    </div>
-  <div class="form-group col-md-6">
-      <label for="inputAddress2">Endereço</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="inputAddress2">Nº</label>
-      <input type="number" class="form-control" id="inputAddress2" placeholder="">
-    </div>
-  </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputAddress">CEP</label>
+                <input type="number" class="form-control" id="inputAddress" name="cep" [ngModel]="cadastro.cep" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress2">Endereço</label>
+                <input type="text" class="form-control" id="inputAddress2" name="endereco" placeholder="" [ngModel]="cadastro.endereco" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputAddress2">Nº</label>
+                <input type="number" class="form-control" id="inputAddress2" name="n°" placeholder="" [ngModel]="cadastro.numero" required>
+            </div>
+        </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">Cidade</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputState">Estado</label>
-        <select id="inputState" class="form-control">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Cidade</label>
+                <input type="text" class="form-control" id="inputCity" name="cidade" [ngModel]="cadastro.cidade" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputState">Estado</label>
+                <select id="inputState" class="form-control" name="estado" [ngModel]="cadastro.estado" required>
           <option selected>MG</option>
           <option>...</option>
         </select>
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputZip">Telefone</label>
-        <input type="number" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="inputZip">Telefone</label>
+                <input type="number" class="form-control" id="inputZip" ([ngModel])="cadastro.telefone" required>
+            </div>
+        </div>
+        <div class="form-group">
 
-    </div>
-    <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
-  </form>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+    </form>
 
 </div>
